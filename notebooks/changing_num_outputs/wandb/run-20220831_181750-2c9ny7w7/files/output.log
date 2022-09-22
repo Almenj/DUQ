@@ -1,0 +1,48 @@
+Loss
+	validation       	 (min:    0.089, max:    0.089, cur:    0.089)
+	training         	 (min:    0.183, max:    0.183, cur:    0.183)
+Loss
+	validation       	 (min:    0.005, max:    0.089, cur:    0.005)
+	training         	 (min:    0.004, max:    0.183, cur:    0.004)
+Loss
+	validation       	 (min:    0.004, max:    0.089, cur:    0.006)
+	training         	 (min:    0.003, max:    0.183, cur:    0.005)
+Time elapsed: 441.54s.
+Number of trainable model parameters: 5756, number of training samples: 929
+Used batches of 50.
+Time taken: 441.57646894454956s
+OUTPUT 0:
+Untrustworthy in train:	0	(low: 0, high: 0)
+Untrustworthy in test:	630	(low: 566, high: 64)
+Untrustworthy in val:	4	(low: 2, high: 2)
+----------------------
+Total untrustworthy:	634
+OUTPUT 1:
+Untrustworthy in train:	1	(low: 1, high: 0)
+Untrustworthy in test:	641	(low: 588, high: 53)
+Untrustworthy in val:	6	(low: 4, high: 2)
+----------------------
+Total untrustworthy:	648
+OUTPUT 2:
+Untrustworthy in train:	0	(low: 0, high: 0)
+Untrustworthy in test:	641	(low: 608, high: 33)
+Untrustworthy in val:	3	(low: 2, high: 1)
+----------------------
+Total untrustworthy:	644
+OUTPUT 3:
+Untrustworthy in train:	37	(low: 24, high: 13)
+Untrustworthy in test:	668	(low: 600, high: 68)
+Untrustworthy in val:	22	(low: 17, high: 5)
+----------------------
+Total untrustworthy:	727
+OUTPUT 4:
+Untrustworthy in train:	43	(low: 16, high: 27)
+Untrustworthy in test:	631	(low: 551, high: 80)
+Untrustworthy in val:	21	(low: 7, high: 14)
+----------------------
+Total untrustworthy:	695
+OUTPUT 5:
+Untrustworthy in train:	45	(low: 25, high: 20)
+Untrustworthy in test:	644	(low: 586, high: 58)
+Untrustworthy in val:	19	(low: 9, high: 10)
+----------------------

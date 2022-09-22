@@ -1,0 +1,10 @@
+name: duq_env
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - flask
+  - jupyter
+  - pip
+  - pip:
+    - -r requirements.txt

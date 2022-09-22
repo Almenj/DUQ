@@ -1,0 +1,1293 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>MC DROPOUT &#8212; DUQ 1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <dl>
+<dt>Welcome to DeepUQ (DUQ)’s documentation!::</dt><dd><blockquote>
+<div><blockquote>
+<div><blockquote>
+<div><blockquote>
+<div><blockquote>
+<div><blockquote>
+<div><blockquote>
+<div><p>___</p>
+</div></blockquote>
+<p>,-””   <a href="#id1"><span class="problematic" id="id2">`</span></a>.</p>
+</div></blockquote>
+<p>,’  _   e )`-._</p>
+</div></blockquote>
+<p>/  ,’ <a href="#id3"><span class="problematic" id="id4">`</span></a>-._&lt;.===-’</p>
+</div></blockquote>
+<p>/  /</p>
+</div></blockquote>
+<p>/  ;</p>
+</div></blockquote>
+<p>_.–.__    /   ;</p>
+</div></blockquote>
+<p>(<a href="#id5"><span class="problematic" id="id6">`</span></a>._    _.-””       “–’    |
+&lt;_  <a href="#id7"><span class="problematic" id="id8">`</span></a>-””                     </p>
+<blockquote>
+<div><dl>
+<dt>&lt;<a href="#id9"><span class="problematic" id="id10">`</span></a>-                          :</dt><dd><dl>
+<dt>(__   &lt;__.                  ;</dt><dd><dl>
+<dt><a href="#id11"><span class="problematic" id="id12">`</span></a>-.   ‘-.__.      _.’    /</dt><dd><dl>
+<dt>     <a href="#id13"><span class="problematic" id="id14">`</span></a>-.__,-’    _,’</dt><dd><dl>
+<dt><a href="#id15"><span class="problematic" id="id16">`</span></a>._    ,    /__,-’</dt><dd><dl>
+<dt>“”.___,’&lt; &lt;____</dt><dd><div class="line-block">
+<div class="line">|  <cite>—-.</cite>.</div>
+<div class="line">|        <a href="#id17"><span class="problematic" id="id18">`</span></a>.</div>
+</div>
+<p>; <a href="#id19"><span class="problematic" id="id20">|</span></a>___      -``
+  –&lt;</p>
+<blockquote>
+<div><dl class="simple">
+<dt><cite>.</cite>.&lt;</dt><dd><p><a href="#id21"><span class="problematic" id="id22">`</span></a>-’</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</dd>
+</dl>
+<div class="toctree-wrapper compound">
+</div>
+<section id="module-mc_dropout">
+<span id="mc-dropout"></span><h1>MC DROPOUT<a class="headerlink" href="#module-mc_dropout" title="Permalink to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="mc_dropout.MC_Dropout">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mc_dropout.</span></span><span class="sig-name descname"><span class="pre">MC_Dropout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">train_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_mean</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_std</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wandb_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mc_dropout.MC_Dropout" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class that contains all the model parameters, hyperparameters and methods
+for MC Dropout.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mc_dropout.MC_Dropout.PLL">
+<span class="sig-name descname"><span class="pre">PLL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mc_dropout.MC_Dropout.PLL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the Predictive Log-likelihood as per equation 8 (and
+equation 22 in Appendix 4.4) of “Dropout as a Bayesian Approximation:
+Representing Model Uncertainty in Deep Learning” (Y. Gal, 2016,
+University of Cambridge). Predictive log likelihood captures how well
+a model fits the data, with larger values indicating a better model
+fit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pred</strong> (<em>torch.Tensor</em>) – Predicted value of y</p></li>
+<li><p><strong>true</strong> (<em>torch.Tensor</em>) – True value of y</p></li>
+<li><p><strong>l</strong> (<em>float</em>) – Length scale of data. Default = 10**(-2) per paper</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>PLL</strong> – Predictive log-likelihood</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mc_dropout.MC_Dropout.count_parameters">
+<span class="sig-name descname"><span class="pre">count_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">net</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mc_dropout.MC_Dropout.count_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Count the number of trainable parameters in the neural network.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>net</strong> (<em>nn.Module</em>) – Network to count the parameters of</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Number of trainable parameters in net</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mc_dropout.MC_Dropout.evaluate_point">
+<span class="sig-name descname"><span class="pre">evaluate_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">net</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mc_dropout.MC_Dropout.evaluate_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for performing a single prediction using the NN.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>net</strong> (<em>nn.Module</em>) – The network class</p></li>
+<li><p><strong>X</strong> (<em>torch.Tensor</em>) – Datapoint to assess</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Corresponding prediction for the given X point</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>torch.Tensor or NumPy array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mc_dropout.MC_Dropout.generate_samples">
+<span class="sig-name descname"><span class="pre">generate_samples</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mc_dropout.MC_Dropout.generate_samples" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a number of predictions that are sampled to generate
+our uncertainty.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>torch.Tensor</em>) – Input to generate samples for</p></li>
+<li><p><strong>**kwargs</strong> – DESCRIPTION.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>samples</strong> (<em>NumPy array</em>) – All individual samples generated by successive stochastic forward
+passes through the network.
+If one output, of shape (#samples, #datapoints)
+If more than one output, of shape (#outputs,#samples,#datapoints)</p></li>
+<li><p><strong>means</strong> (<em>NumPy array</em>) – Array of the mean prediction of each datapoint, based on the
+average of all forward passes for that point.
+Of shape (#outputs, #datapoints)</p></li>
+<li><p><strong>stds</strong> (<em>NumPy array</em>) – Array of the standard deviation of each datapoint, based on the
+std of all forward passes for that point.
+Of shape (#outputs, #datapoints)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mc_dropout.MC_Dropout.make_prediction">
+<span class="sig-name descname"><span class="pre">make_prediction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plots</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mc_dropout.MC_Dropout.make_prediction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a single prediction and return the mean and uncertainty
+Note: num_samples is a kwarg so we can keep calling a generic
+function in duq.pre</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x_value</strong> (<em>TYPE</em>) – DESCRIPTION.</p></li>
+<li><p><strong>model</strong> (<em>TYPE</em>) – DESCRIPTION.</p></li>
+<li><p><strong>data_mean</strong> (<em>TYPE</em>) – DESCRIPTION.</p></li>
+<li><p><strong>data_std</strong> (<em>TYPE</em>) – DESCRIPTION.</p></li>
+<li><p><strong>verbose</strong> (<em>TYPE</em><em>, </em><em>optional</em>) – DESCRIPTION. The default is False.</p></li>
+<li><p><strong>plots</strong> (<em>TYPE</em><em>, </em><em>optional</em>) – DESCRIPTION. The default is False.</p></li>
+<li><p><strong>**kwargs</strong> (<em>TYPE</em>) – DESCRIPTION.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>samples_pred</strong> (<em>TYPE</em>) – DESCRIPTION.</p></li>
+<li><p><strong>means_pred</strong> (<em>TYPE</em>) – DESCRIPTION.</p></li>
+<li><p><strong>stds_pred</strong> (<em>TYPE</em>) – DESCRIPTION.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mc_dropout.MC_Dropout.retrain_model">
+<span class="sig-name descname"><span class="pre">retrain_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_train_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_batch_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_epochs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">checkpoint_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_checkpoint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mc_dropout.MC_Dropout.retrain_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrain an existing model class using some new data. Works by
+loading up a saved checkpoint. Also gives the option to save a new
+checkpoint so we can train upon this too.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>_train_data</strong> (<em>torch.TensorDataset</em>) – New training data</p></li>
+<li><p><strong>_batch_size</strong> (<em>int</em>) – New batch size</p></li>
+<li><p><strong>_epochs</strong> (<em>int</em>) – How many epochs to train for (in addition to the previously
+executed training)</p></li>
+<li><p><strong>save_checkpoint</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether or not to save another checkpoint after this
+additional training. The default is False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>net</strong> (<em>nn.Module</em>) – The final trained network</p></li>
+<li><p><strong>_train_loss</strong> (<em>float</em>) – Final training loss after re-training</p></li>
+<li><p><strong>validation_loss</strong> (<em>float</em>) – Final validation loss after re-training</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mc_dropout.MC_Dropout.run_sampling">
+<span class="sig-name descname"><span class="pre">run_sampling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mc_dropout.MC_Dropout.run_sampling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to call the sampling method, and also return the associated
+correct value for each prediction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>torch.Tensor</em>) – Input X values (features) to be passed through the network</p></li>
+<li><p><strong>Y</strong> (<em>torch.Tensor</em>) – The true y values (labels) of each datapoint</p></li>
+<li><p><strong>**kwargs</strong> – DESCRIPTION.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>samples</strong> (<em>NumPy array</em>) – All individual samples generated by successive stochastic forward
+passes through the network.
+If one output, of shape (#samples, #datapoints)
+If more than one output, of shape (#outputs, #samples, #datapoints)</p></li>
+<li><p><strong>means</strong> (<em>NumPy array</em>) – Array of the mean prediction of each datapoint, based on the
+average of all forward passes for that point.
+Of shape (#outputs, #datapoints)</p></li>
+<li><p><strong>stds</strong> (<em>NumPy array</em>) – Array of the standard deviation of each datapoint, based on the
+std of all forward passes for that point.
+Of shape (#outputs, #datapoints)</p></li>
+<li><p><strong>Y_np</strong> (<em>NumPy array</em>) – The true Y values for all datapoints, converted to a NumPy array.
+Of shape (#datapoints,)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mc_dropout.MC_Dropout.set_defaults">
+<span class="sig-name descname"><span class="pre">set_defaults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">param_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Not</span> <span class="pre">set'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mc_dropout.MC_Dropout.set_defaults" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set default parameters if they haven’t been entered</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mc_dropout.MC_Dropout.train">
+<span class="sig-name descname"><span class="pre">train</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">net</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimiser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">criterion</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_loader</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mc_dropout.MC_Dropout.train" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for training the neural network.</p>
+<p>Parameters
+———-…..</p>
+<blockquote>
+<div><p>The network class</p>
+</div></blockquote>
+<dl class="simple">
+<dt>optimiser<span class="classifier">torch.optim</span></dt><dd><p>Optimiser</p>
+</dd>
+<dt>criterion<span class="classifier">torch.nn.modules.loss</span></dt><dd><p>Loss function</p>
+</dd>
+<dt>data_loader<span class="classifier">torch.DataLoader</span></dt><dd><p>Loader for training data</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Average training loss per datapoint</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>torch.Tensor</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mc_dropout.MC_Dropout.train_model">
+<span class="sig-name descname"><span class="pre">train_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">LLP</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">checkpoint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">checkpoint_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mc_dropout.MC_Dropout.train_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Routine to train the model and return the trained network.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><strong>net</strong> (<em>nn.Module</em>) – The final trained network</p></li>
+<li><p><strong>train_loss</strong> (<em>float</em>) – Final training loss after training</p></li>
+<li><p><strong>validation_loss</strong> (<em>float</em>) – Final validation loss after training</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mc_dropout.MC_Dropout.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">net</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">criterion</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_loader</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mc_dropout.MC_Dropout.validate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for calculating the loss on a validation set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>net</strong> (<em>nn.Module</em>) – The network class</p></li>
+<li><p><strong>criterion</strong> (<em>torch.nn.modules.loss</em>) – Loss function</p></li>
+<li><p><strong>data_loader</strong> (<em>torch.DataLoader</em>) – Loader for training data</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Average validation loss per datapoint</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>torch.Tensor</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mc_dropout.MC_Dropout_Model">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mc_dropout.</span></span><span class="sig-name descname"><span class="pre">MC_Dropout_Model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_units</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drop_prob</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_layers</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mc_dropout.MC_Dropout_Model" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to define the network implementing Dropout.
+Inference is performed later by a MC sampling method.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mc_dropout.MC_Dropout_Model.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mc_dropout.MC_Dropout_Model.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-sgld">
+<span id="sgld"></span><h1>SGLD<a class="headerlink" href="#module-sgld" title="Permalink to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="sgld.SGLD">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sgld.</span></span><span class="sig-name descname"><span class="pre">SGLD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_mean</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_std</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wandb_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sgld.SGLD" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class that contains all the model parameters, hyperparameters and methods
+for MC Dropout.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sgld.SGLD.PLL">
+<span class="sig-name descname"><span class="pre">PLL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sgld.SGLD.PLL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the Predictive Log-likelihood as per equation 8 (and
+equation 22 in Appendix 4.4) of “Dropout as a Bayesian Approximation:
+Representing Model Uncertainty in Deep Learning” (Y. Gal, 2016,
+University of Cambridge). Predictive log likelihood captures how well
+a model fits the data, with larger values indicating a better model
+fit.
+Not currently being used.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pred</strong> (<em>torch.Tensor</em>) – Predicted value of y</p></li>
+<li><p><strong>true</strong> (<em>torch.Tensor</em>) – True value of y</p></li>
+<li><p><strong>l</strong> (<em>float</em>) – Length scale of data. Default = 10**(-2) per paper</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>PLL</strong> – Predictive log-likelihood</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sgld.SGLD.add_param_noise">
+<span class="sig-name descname"><span class="pre">add_param_noise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">net</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multiplier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sgld.SGLD.add_param_noise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cycle through all parameters and add Gaussian noise
+as per the SGLD method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>net</strong> (<em>nn.Module</em>) – The network</p></li>
+<li><p><strong>multiplier</strong> (<em>float</em><em>, </em><em>optional</em>) – Scalar to multiply the noise by on each weight. The default is 1.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sgld.SGLD.count_parameters">
+<span class="sig-name descname"><span class="pre">count_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">net</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sgld.SGLD.count_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Count the number of trainable parameters in the neural network.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>net</strong> (<em>nn.Module</em>) – Network to count the parameters of</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Number of trainable parameters in net</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sgld.SGLD.evaluate_point">
+<span class="sig-name descname"><span class="pre">evaluate_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">net</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sgld.SGLD.evaluate_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for performing a single prediction using the NN.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>net</strong> (<em>nn.Module</em>) – The network class</p></li>
+<li><p><strong>X</strong> (<em>torch.Tensor</em>) – Datapoint to assess</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Corresponding prediction for the given X point</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>torch.Tensor or NumPy array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sgld.SGLD.generate_samples">
+<span class="sig-name descname"><span class="pre">generate_samples</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sgld.SGLD.generate_samples" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a number of predictions that are sampled to generate
+our uncertainty.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>torch.Tensor</em>) – Input to generate samples for</p></li>
+<li><p><strong>**kwargs</strong> – DESCRIPTION.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>samples</strong> (<em>NumPy array</em>) – All individual samples generated by successive stochastic forward
+passes through the network.
+If one output, of shape (#samples, #datapoints)
+If more than one output, of shape (#outputs,#samples,#datapoints)</p></li>
+<li><p><strong>means</strong> (<em>NumPy array</em>) – Array of the mean prediction of each datapoint, based on the
+average of all forward passes for that point.
+Of shape (#outputs, #datapoints)</p></li>
+<li><p><strong>stds</strong> (<em>NumPy array</em>) – Array of the standard deviation of each datapoint, based on the
+std of all forward passes for that point.
+Of shape (#outputs, #datapoints)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sgld.SGLD.make_prediction">
+<span class="sig-name descname"><span class="pre">make_prediction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plots</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sgld.SGLD.make_prediction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a single prediction and return the mean and uncertainty
+Note: num_samples is a kwarg so we can keep calling a generic
+function in duq.pre</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x_value</strong> (<em>TYPE</em>) – DESCRIPTION.</p></li>
+<li><p><strong>model</strong> (<em>TYPE</em>) – DESCRIPTION.</p></li>
+<li><p><strong>data_mean</strong> (<em>TYPE</em>) – DESCRIPTION.</p></li>
+<li><p><strong>data_std</strong> (<em>TYPE</em>) – DESCRIPTION.</p></li>
+<li><p><strong>verbose</strong> (<em>TYPE</em><em>, </em><em>optional</em>) – DESCRIPTION. The default is False.</p></li>
+<li><p><strong>plots</strong> (<em>TYPE</em><em>, </em><em>optional</em>) – DESCRIPTION. The default is False.</p></li>
+<li><p><strong>**kwargs</strong> (<em>TYPE</em>) – DESCRIPTION.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>samples_pred</strong> (<em>TYPE</em>) – DESCRIPTION.</p></li>
+<li><p><strong>means_pred</strong> (<em>TYPE</em>) – DESCRIPTION.</p></li>
+<li><p><strong>stds_pred</strong> (<em>TYPE</em>) – DESCRIPTION.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sgld.SGLD.retrain_model">
+<span class="sig-name descname"><span class="pre">retrain_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_train_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_batch_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_epochs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">checkpoint_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_checkpoint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sgld.SGLD.retrain_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrain an existing model class using some new data. Works by
+loading up a saved checkpoint. Also gives the option to save a new
+checkpoint so we can train upon this too.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>_train_data</strong> (<em>torch.TensorDataset</em>) – New training data</p></li>
+<li><p><strong>_batch_size</strong> (<em>int</em>) – New batch size</p></li>
+<li><p><strong>_epochs</strong> (<em>int</em>) – How many epochs to train for (in addition to the previously
+executed training)</p></li>
+<li><p><strong>save_checkpoint</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether or not to save another checkpoint after this
+additional training. The default is False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>net</strong> (<em>nn.Module</em>) – The final trained network</p></li>
+<li><p><strong>_train_loss</strong> (<em>float</em>) – Final training loss after re-training</p></li>
+<li><p><strong>validation_loss</strong> (<em>float</em>) – Final validation loss after re-training</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sgld.SGLD.run_sampling">
+<span class="sig-name descname"><span class="pre">run_sampling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sgld.SGLD.run_sampling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to call the sampling method, and also return the associated
+correct value for each prediction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>torch.Tensor</em>) – Input X values (features) to be passed through the network</p></li>
+<li><p><strong>Y</strong> (<em>torch.Tensor</em>) – The true y values (labels) of each datapoint</p></li>
+<li><p><strong>**kwargs</strong> – DESCRIPTION.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>samples</strong> (<em>NumPy array</em>) – All individual samples generated by successive stochastic forward
+passes through the network.
+If one output, of shape (#samples, #datapoints)
+If more than one output, of shape (#outputs, #samples, #datapoints)</p></li>
+<li><p><strong>means</strong> (<em>NumPy array</em>) – Array of the mean prediction of each datapoint, based on the
+average of all forward passes for that point.
+Of shape (#outputs, #datapoints)</p></li>
+<li><p><strong>stds</strong> (<em>NumPy array</em>) – Array of the standard deviation of each datapoint, based on the
+std of all forward passes for that point.
+Of shape (#outputs, #datapoints)</p></li>
+<li><p><strong>Y_np</strong> (<em>NumPy array</em>) – The true Y values for all datapoints, converted to a NumPy array.
+Of shape (#datapoints,)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sgld.SGLD.set_defaults">
+<span class="sig-name descname"><span class="pre">set_defaults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">param_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Not</span> <span class="pre">set'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sgld.SGLD.set_defaults" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set default parameters if they haven’t been entered</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sgld.SGLD.train">
+<span class="sig-name descname"><span class="pre">train</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">net</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimiser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">criterion</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_loader</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sgld.SGLD.train" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for training the neural network.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>net</strong> (<em>nn.Module</em>) – The network class</p></li>
+<li><p><strong>optimiser</strong> (<em>torch.optim</em>) – Optimiser</p></li>
+<li><p><strong>criterion</strong> (<em>torch.nn.modules.loss</em>) – Loss function</p></li>
+<li><p><strong>data_loader</strong> (<em>torch.DataLoader</em>) – Loader for training data</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Average training loss per datapoint</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>torch.Tensor</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sgld.SGLD.train_model">
+<span class="sig-name descname"><span class="pre">train_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">LLP</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">checkpoint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">checkpoint_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sgld.SGLD.train_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Routine to train the model and return the trained network.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><strong>net</strong> (<em>nn.Module</em>) – The final trained network</p></li>
+<li><p><strong>train_loss</strong> (<em>float</em>) – Final training loss after training</p></li>
+<li><p><strong>validation_loss</strong> (<em>float</em>) – Final validation loss after training</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sgld.SGLD.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">net</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">criterion</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_loader</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sgld.SGLD.validate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for calculating the loss on a validation set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>net</strong> (<em>nn.Module</em>) – The network class</p></li>
+<li><p><strong>criterion</strong> (<em>torch.nn.modules.loss</em>) – Loss function</p></li>
+<li><p><strong>data_loader</strong> (<em>torch.DataLoader</em>) – Loader for training data</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Average validation loss per datapoint</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>torch.Tensor</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sgld.SGLD_Model">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sgld.</span></span><span class="sig-name descname"><span class="pre">SGLD_Model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_units</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_layers</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sgld.SGLD_Model" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to define the network implementing Dropout.
+Inference is performed later by a MC sampling method.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sgld.SGLD_Model.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sgld.SGLD_Model.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-post">
+<span id="post"></span><h1>post<a class="headerlink" href="#module-post" title="Permalink to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="post.PCA_plot">
+<span class="sig-prename descclassname"><span class="pre">post.</span></span><span class="sig-name descname"><span class="pre">PCA_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">all_stds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend_num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend_HDI</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.95</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colours</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['r',</span> <span class="pre">'g',</span> <span class="pre">'b']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scalingpower</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scalingfactor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(15,</span> <span class="pre">15)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">produce_animation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">animation_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./animation.mp4'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_image</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">savename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">saveformat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'png'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dpi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#post.PCA_plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the reduced dimension dataset in a 3D scatter graph.
+Colour the points according to their dataset, size the points according to
+their corresponding uncertainty prediction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>all_data</strong> (<em>list of DataFrames</em>) – All the data to be plotted. List of length equal to the number of
+datasets (e.g. 3 for Train, Test and Val). Each item in the list is
+a DataFrame returned from the function PCA_transformdata.</p></li>
+<li><p><strong>all_stds</strong> (<em>list of NumPy array</em>) – All the standard deviations for the data being plotted.
+Of shape (1, #datapoints)</p></li>
+<li><p><strong>output_num</strong> (<em>int</em>) – Which output to plot, e.g. 0=freq1, 1=freq2,…</p></li>
+<li><p><strong>legend_num</strong> (<em>int</em><em>, </em><em>optional</em>) – How many items to include in the legend which links the size of
+markers to the uncertainty. The default is 5.</p></li>
+<li><p><strong>legend_HDI</strong> (<em>float</em><em>, </em><em>optional</em>) – Float between (0,1). Controls the upper and lower extent of the
+legend entries for the uncertainty using Highest Density Interval
+(HDI). The default is 0.95.</p></li>
+<li><p><strong>labels</strong> (<em>list of str</em><em>, </em><em>optional</em>) – Labels for the datasets, e.g. [“Train”, “Test”, “Val”].
+The default is None.</p></li>
+<li><p><strong>colours</strong> (<em>list of str</em><em>, </em><em>optional</em>) – Colours to plot each dataset. The default is [‘r’, ‘g’, ‘b’].</p></li>
+<li><p><strong>scalingpower</strong> (<em>float</em><em>, </em><em>optional</em>) – What power to raise the uncertainty by to transform it into a
+marker size (area). The default is 3.</p></li>
+<li><p><strong>scalingfactor</strong> (<em>float</em><em>, </em><em>optional</em>) – What factor to multiply the uncertainty by (before raising to the power
+above) to transform uncertainty to marker size (area).
+The default is 50.</p></li>
+<li><p><strong>figsize</strong> (<em>tuple</em><em>, </em><em>optional</em>) – Tuple of fig size. The default is (15,15).</p></li>
+<li><p><strong>produce_animation</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to produce an animation that rotates the plot automatically.
+It’s quite nice but slow. The default is False.</p></li>
+<li><p><strong>animation_name</strong> (<em>str</em><em>, </em><em>optional</em>) – Where to save the animation if it’s been produced.
+The default is “./animation.mp4”.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="post.PCA_transformdata">
+<span class="sig-prename descclassname"><span class="pre">post.</span></span><span class="sig-name descname"><span class="pre">PCA_transformdata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dimensions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#post.PCA_transformdata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform Prinicipal Component Analysis to reduce the dimension of input
+data X</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x_data</strong> (<em>torch.Tensor</em>) – Data to reduce</p></li>
+<li><p><strong>dimensions</strong> (<em>int</em><em>, </em><em>default = 3</em>) – Dimensions to reduce to</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em>) – If True, print the PCA components</p></li>
+<li><p><strong>components</strong> (<em>array_like</em>) – If</p></li>
+<li><p><strong>XXXXX</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>x_PC_df</strong> – Transformed data, with columns ‘PC1’, ‘PC2’, ‘PC3’,.. etc</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="post.calculate_credibility">
+<span class="sig-prename descclassname"><span class="pre">post.</span></span><span class="sig-name descname"><span class="pre">calculate_credibility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interval</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#post.calculate_credibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate credibility intervals.
+:param Samples: Raw samples from the neural network output.</p>
+<blockquote>
+<div><p>Shape: (num_samples_drawn_from_NN, num_test_points, 1) (np array)</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Interval</strong> – E.g. if using HDI: 0.95 (for 95% Highest Density Interval)
+E.g. if using SD: 2 (for +/- 2 standard deviations)</p></li>
+<li><p><strong>Method</strong> – Either:
+“HDI” - For Highest Density Interval
+“SD” - For Standard Deviation</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Lower and upper prediction ranges. Includes the</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Lower, Upper</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="post.count_wrong_preds">
+<span class="sig-prename descclassname"><span class="pre">post.</span></span><span class="sig-name descname"><span class="pre">count_wrong_preds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interval</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#post.count_wrong_preds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Taking into account the upper and low confidence intervals, how many
+predictions did we get wrong? I.e. how many true values are out of the
+confidence region?</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>samples</strong> (<em>array_like</em>) – Array of shape (#samples, #datapoints) containing samples for a dataset</p></li>
+<li><p><strong>true</strong> (<em>array_like</em>) – Array of shape (#datapoints,) containing the true y values for dataset</p></li>
+<li><p><strong>interval</strong> (<em>float</em>) – If method = “SD”, this is number of standard deviations from mean to
+calc
+If method = “HDI”, this is the interval to take (e.g. 0.95 = 95% HDI)</p></li>
+<li><p><strong>method</strong> (<em>str</em>) – Either “SD” or “HDI”</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>pred_low</strong> (<em>int</em>) – How many predictions were too low (i.e. true value falls above the
+CI)</p></li>
+<li><p><strong>pred_high</strong> (<em>int</em>) – How many predictions were too high (i.e. true value falls below the
+CI)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="post.generate_3d_plot">
+<span class="sig-prename descclassname"><span class="pre">post.</span></span><span class="sig-name descname"><span class="pre">generate_3d_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">means_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stds_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percent_uncert</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xxx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yyy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zzz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ranges</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">consts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend_num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend_HDI</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.95</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'absolute'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">produce_animation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">animation_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./animation.mp4'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">all_domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[[3,</span> <span class="pre">10],</span> <span class="pre">[3,</span> <span class="pre">10],</span> <span class="pre">[3,</span> <span class="pre">10],</span> <span class="pre">[5,</span> <span class="pre">10],</span> <span class="pre">[5,</span> <span class="pre">10],</span> <span class="pre">[5,</span> <span class="pre">10]]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(15,</span> <span class="pre">15)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scalingpower</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scalingscalar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dpi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#post.generate_3d_plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a 3D scatter plot of the uncertainty analysis performed by the
+function generate_3d_samples.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>means_pred</strong> (<em>array_like</em>) – Mean prediction values of every point in the sample space.</p></li>
+<li><p><strong>stds_pred</strong> (<em>array_like</em>) – Standard deviation of predictions for every point in the sample space.</p></li>
+<li><p><strong>percent_uncert</strong> (<em>array_like</em>) – Percentage uncertainty (std/mean) for every point in the sample space.</p></li>
+<li><p><strong>xxx</strong> (<em>NumPy array</em>) – Meshgrid used for plotting in 3D.
+Of shape (num_steps, num_steps, num_steps). See generate_3d_samples.</p></li>
+<li><p><strong>yyy</strong> (<em>TYPE</em>) – Meshgrid used for plotting in 3D.
+Of shape (num_steps, num_steps, num_steps). See generate_3d_samples.</p></li>
+<li><p><strong>zzz</strong> (<em>TYPE</em>) – Meshgrid used for plotting in 3D.
+Of shape (num_steps, num_steps, num_steps). See generate_3d_samples.</p></li>
+<li><p><strong>labels</strong> (<em>list of str</em>) – The axis labels, format: [x, y, z]. E.g. [“num_x”, “num_y”, “num_z”]</p></li>
+<li><p><strong>ranges</strong> (<em>list of int</em>) – A list detailing which parameters are set as ranges.
+1 = num_x, 2 = num_y, 3 = num_z, 4 = dim_x, ….</p></li>
+<li><p><strong>consts</strong> (<em>list of int</em>) – A list detailing which parameters are set as constants.
+1 = num_x, 2 = num_y, 3 = num_z, 4 = dim_x, ….</p></li>
+<li><p><strong>scale</strong> (<em>bool</em>) – If True, scale every axis to match the relative dimension of the
+x axis. Loses a bit of resolution as everything gets scaled down,
+but maybe still helpful for nice visualisation.</p></li>
+<li><p><strong>legend_num</strong> (<em>int</em><em>, </em><em>optional</em>) – How many items to include in the legend which links the size of
+markers to the uncertainty. The default is 5.</p></li>
+<li><p><strong>legend_HDI</strong> (<em>float</em><em>, </em><em>optional</em>) – Float between (0,1). Controls the upper and lower extent of the
+legend entries for the uncertainty using Highest Density Interval
+(HDI). The default is 0.95.</p></li>
+<li><p><strong>mode</strong> (<em>str</em><em>, </em><em>optional</em>) – If “absolute”, scale the markers according to the stds_pred.
+If “relative”, scale markers according to percent_uncert.
+The default is “absolute”.</p></li>
+<li><p><strong>produce_animation</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to produce an animation that rotates the plot automatically.
+It’s quite nice but slow. The default is False.</p></li>
+<li><p><strong>limit</strong> (<em>float</em><em>, </em><em>optional</em>) – The markers can get quite big. If ‘limit’ is specified, limit
+the scale of all markers to this number. A sensible(ish) number is
+about 4000. The default is None.</p></li>
+<li><p><strong>animation_name</strong> (<em>str</em><em>, </em><em>optional</em>) – Where to save the animation if it’s been produced.
+The default is “./animation.mp4”.</p></li>
+<li><p><strong>domain</strong> (<em>list</em><em>, </em><em>optional</em>) – The extents of the training data for dimx, dimy and dimz.
+Format is [[minx,maxx],[miny,maxy],[minz,maxz]]
+Default is [[5,10],[5,10],[5,10]]</p></li>
+<li><p><strong>figsize</strong> (<em>TYPE</em><em>, </em><em>optional</em>) – DESCRIPTION. The default is (15,15).</p></li>
+<li><p><strong>scalingpower</strong> (<em>TYPE</em><em>, </em><em>optional</em>) – DESCRIPTION. The default is None.</p></li>
+<li><p><strong>scalingscalar</strong> (<em>TYPE</em><em>, </em><em>optional</em>) – DESCRIPTION. The default is None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>DESCRIPTION.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>TYPE</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="post.result_plots">
+<span class="sig-prename descclassname"><span class="pre">post.</span></span><span class="sig-name descname"><span class="pre">result_plots</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">component_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">true_inds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SD'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">all_true</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sortby</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bar_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'bars'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#post.result_plots" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produce error plots for the testing samples, but instead of plotting
+error bars, plot the raw predicted ys
+:param all_samples: Samples are the individual predictions ‘y’ for each X that</p>
+<blockquote>
+<div><p>form the prediction distributions
+List containing each dataset
+(e.g. [samples_test, samples_train, samples_val])
+Each element in the list is either a NumPy array of shape
+(#samples, #datapoints) if only 1 output, or
+(#outputs, #samples, #datapoints) if more than 1 output</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>component_name</strong> – Name of the component of interest.
+This is the component that the original DataFrame was sorted by,
+which influences how the test/train/val data is split. Optional.</p></li>
+<li><p><strong>labels</strong> – Names of each of the datasets, e.g. [“Test”, “Train”, “Val”].
+Optional.</p></li>
+<li><p><strong>interval</strong> – How wide the uncertainty regions are. Depends on ‘method’ input.
+E.g. if using HDI: 0.95 (for 95% Highest Density Interval)
+E.g. if using SD: 2 (for +/- 2 standard deviations)</p></li>
+<li><p><strong>method</strong> – Either:
+“HDI” - For Highest Density Interval
+“SD” - For Standard Deviation</p></li>
+<li><p><strong>all_true</strong> – The true values of ‘y’ for each X
+List containing each dataset (e.g.
+[samples_test, samples_train, samples_val])
+Each element in the list is either a NumPy array of shape
+(#datapoints) if only 1 output, or
+(#outputs, #datapoints) if more than 1 output</p></li>
+<li><p><strong>sort</strong> – If True, the function sorts the X values in each dataset by the
+magnitude of their corresponding ‘y’ value. Individually sorts the
+different datasets (i.e. it doesn’t combine them)
+If False, the function plots each datapoint in the order they’re
+presented.</p></li>
+<li><p><strong>sortby</strong> – Which output# to sort by. Only applicable when plotting multiple
+outputs (i.e. more than one dependent variable). This ensures
+that the correct y value is plotted for each X, and each X can
+be compared against the different outputs. If int type, the
+corresponding output will be prioritised and plotted first e.g.
+if sortby=1, the second output data will be plotted first.
+If sortby=”all”, then all the data will be sorted and plotted.
+IMPORTANT: If ‘all’ is used, any particular datapoint number
+(on the x axis) corresponds to a different datapoint number in
+each output set. They cannot be compared.</p></li>
+<li><p><strong>bar_method</strong> – <dl class="simple">
+<dt>How to display the confidence intervals.</dt><dd><p>”bars”: Solid bars without caps, cleaner look
+“streaks”: Plot every sample of every test point, more
+interesting but perhaps less clear</p>
+</dd>
+</dl>
+</p></li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dt><a href="#id23"><span class="problematic" id="id24">**</span></a>kwargs:</dt><dd><dl class="simple">
+<dt>true_inds:</dt><dd><p>If the user wants to plot the individual datapoints in the order in
+which they appear in the original dataframe (before sorting)</p>
+</dd>
+</dl>
+<p>title: Title of the plot
+ylabel: y axis label
+markersize:
+linewidth:
+output_labels:
+figsize:
+ylim:
+xlim:</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-pre">
+<span id="pre"></span><h1>pre<a class="headerlink" href="#module-pre" title="Permalink to this heading">¶</a></h1>
+<p>A module to primarily import tabular data and process it ready for NN analysis.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="pre.dataset_from_df">
+<span class="sig-prename descclassname"><span class="pre">pre.</span></span><span class="sig-name descname"><span class="pre">dataset_from_df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_cols</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_cols</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pre.dataset_from_df" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper function that takes a DataFrame containing all data,
+and outputs the corresponding dfs for x and y only, x and y values as
+torch.tensors, the corresponding indices leftover from splitting the data,
+and a TensorDataset ready for training.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>DataFrame</em>) – df containing ALL data for a specific dataset, i.e. all the ys and xs</p></li>
+<li><p><strong>x_cols</strong> (<em>array_like</em>) – Which columns of the df relate to the independent variables (features)</p></li>
+<li><p><strong>y_cols</strong> (<em>array_like</em>) – Which columns of the df relate to the dependent variable(s) (labels)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>x_df</strong> (<em>DataFrame</em>) – Dataframe containing all X values only</p></li>
+<li><p><strong>y_df</strong> (<em>DataFrame</em>) – DataFrame containing all Y values only</p></li>
+<li><p><strong>x</strong> (<em>torch.tensor</em>) – Tensor containing all X values</p></li>
+<li><p><strong>y</strong> (<em>torch.tensor</em>) – Tensor containing all Y values</p></li>
+<li><p><strong>indices</strong> (<em>array_like</em>) – The preserved indices of the df</p></li>
+<li><p><strong>dataset</strong> (<em>TensorDataset</em>) – Containing the x and y values.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pre.euclid_dist">
+<span class="sig-prename descclassname"><span class="pre">pre.</span></span><span class="sig-name descname"><span class="pre">euclid_dist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_cols</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pre.euclid_dist" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function to find the Euclidean (L2) distance of every point in a
+dataframe from a specified origin.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>Pandas DataFrame</em>) – DF containing the data. Each column is either an independent or
+dependent variable, and
+each row is a datapoint.</p></li>
+<li><p><strong>origin</strong> (<em>NumPy array</em><em> or </em><em>list</em>) – A 1D array of shape (len(x_cols),) containing the median value of
+every independent variable in the df</p></li>
+<li><p><strong>x_cols</strong> (<em>list</em>) – A list containing the column indexes of every independent variable</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>euclid_dist</strong> – Array containing the L2 distances of each datapoint from the
+geometric median. Of shape (len(df),)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>NumPy array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pre.extract_ood">
+<span class="sig-prename descclassname"><span class="pre">pre.</span></span><span class="sig-name descname"><span class="pre">extract_ood</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_lims_all</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ood_lims_out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ood_lims_in</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pre.extract_ood" title="Permalink to this definition">¶</a></dt>
+<dd><p>From a giant dataset, extract an OOD set and a training set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>Pandas DataFrame</em>) – DataFrame containing all the data</p></li>
+<li><p><strong>train_lims_all</strong> (<em>array_like</em>) – Of shape (#x_parameters, 2), contains the lower and upper bounds
+for every x parameter</p></li>
+<li><p><strong>test_type</strong> (<em>str</em><em>, </em><em>optional</em>) – “all”: Assumes every datapoint that’s not in the training set is
+in the test set.
+“specified”: Only put data in test set if it fulfils the requirements
+set out in ood_lims_upper and ood_lims_lower. The default is “all”.</p></li>
+<li><p><strong>ood_lims_upper</strong> (<em>array_like</em><em>, </em><em>optional</em>) – Of shape (#x_parameters, 2), contains the lower and upper bounds
+for the inner test set, e.g. the domain within the training set.
+The default is None.</p></li>
+<li><p><strong>ood_lims_lower</strong> (<em>array_like</em><em>, </em><em>optional</em>) – Of shape (#x_parameters, 2), contains the lower and upper bounds
+for the outer test set, e.g. the domain outside (larger than) the
+training set. The default is None.</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, print the results of splitting. The default is False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>df_train</strong> (<em>Pandas DataFrame</em>) – DataFrame containing the training data.</p></li>
+<li><p><strong>df_test</strong> (<em>Pandas DataFrame</em>) – DataFrame containing the test (OOD) data.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pre.geometric_median">
+<span class="sig-prename descclassname"><span class="pre">pre.</span></span><span class="sig-name descname"><span class="pre">geometric_median</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pre.geometric_median" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the geometric median of a multi-dimensional dataset.
+From user ‘orlp’: <a class="reference external" href="https://stackoverflow.com/questions/30299267/geometric-median-of-multidimensional-points">https://stackoverflow.com/questions/30299267/geometric-median-of-multidimensional-points</a> # noqa
+18th May 2015, 13:56</p>
+<p>Implements the L1-median median as described in “The multivatiate L1-median and associated data depth” (Y. Vardi et al, 1999) # noqa
+Available at: <a class="reference external" href="https://www.pnas.org/doi/pdf/10.1073/pnas.97.4.1423">https://www.pnas.org/doi/pdf/10.1073/pnas.97.4.1423</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>scalar</em><em>, </em><em>array_like</em><em>, </em><em>DataFrame</em><em>, </em><em>TorchTensor</em>) – Data to analyse</p></li>
+<li><p><strong>eps</strong> (<em>float</em>) – Epsilon, convergence criteria</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>y1</strong> – Geometric median of datastet</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>NumPy array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pre.normalisation_checks">
+<span class="sig-prename descclassname"><span class="pre">pre.</span></span><span class="sig-name descname"><span class="pre">normalisation_checks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mean</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">std</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pre.normalisation_checks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Just run assertion tests on the normalisation.
+The normalisation function is quite easily broken due to different
+data structures doing vectorisation differently, plus wanting to allow
+data input as array_like, single values or a mixture of the two.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>scalar</em><em>, </em><em>array_like</em><em>, </em><em>DataFrame</em><em>, </em><em>TorchTensor</em>) – Data to be normalised</p></li>
+<li><p><strong>mean</strong> (<em>scalar</em><em>, </em><em>array_like</em><em>, </em><em>DataFrame</em><em>, </em><em>TorchTensor</em>) – Mean of the data (pre-normalisation)</p></li>
+<li><p><strong>std</strong> (<em>scalar</em><em>, </em><em>array_like</em><em>, </em><em>DataFrame</em><em>, </em><em>TorchTensor</em>) – Standard deviation of the data (pre-normalisation)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pre.normalise">
+<span class="sig-prename descclassname"><span class="pre">pre.</span></span><span class="sig-name descname"><span class="pre">normalise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mean</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">std</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pre.normalise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Noramlise (standardise) some data x based on a mean and standard deviation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>scalar</em><em>, </em><em>array_like</em><em>, </em><em>DataFrame</em><em>, </em><em>TorchTensor</em>) – Data to be normalised</p></li>
+<li><p><strong>mean</strong> (<em>scalar</em><em>, </em><em>array_like</em><em>, </em><em>DataFrame</em><em>, </em><em>TorchTensor</em>) – Mean of the data (pre-normalisation)</p></li>
+<li><p><strong>std</strong> (<em>scalar</em><em>, </em><em>array_like</em><em>, </em><em>DataFrame</em><em>, </em><em>TorchTensor</em>) – Standard deviation of the data (pre-normalisation)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Normalised version of the input struct</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>normalised_x</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pre.normalise_lims">
+<span class="sig-prename descclassname"><span class="pre">pre.</span></span><span class="sig-name descname"><span class="pre">normalise_lims</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_mean</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_std</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pre.normalise_lims" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalises lists of the shape:
+[[A., B], [A., B], [A., B], [A., B], [A., B], [A., B]]
+Where A is a lower bound and B is an upper bound of one of the input
+parameters, i.e.:
+[x1, x2, x3, x4, x5, x6]</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pre.process_df_euclid">
+<span class="sig-prename descclassname"><span class="pre">pre.</span></span><span class="sig-name descname"><span class="pre">process_df_euclid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_cols</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_mean</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_std</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">median</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pre.process_df_euclid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process a dataframe for analysis. This adds a column for the Euclidean
+(L2) distance of each datapoint from the geometric mean (of independent
+variables), and also normalises the dataset according to each parameter’s
+mean and standard deviation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>Pandas DataFrame</em>) – DF containing the data. Each column is either an independent or
+dependent variable, and
+each row is a datapoint.</p></li>
+<li><p><strong>x_cols</strong> (<em>list</em>) – A list containing the column indexes of every independent variable</p></li>
+<li><p><strong>plot</strong> (<em>bool</em>) – Whether or not to plot a histogram showing the distribution of
+Euclidean distances of each datapoint from the L1-median of the
+independent variables (pre-normalisation).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>df</strong> (<em>Pandas DataFrame</em>) – A normalised Pandas DataFrame with the L2 distance column added</p></li>
+<li><p><strong>data_mean</strong> (<em>Pandas Series</em>) – Contains the mean of each column (parameter) in df</p></li>
+<li><p><strong>data_std</strong> (<em>Pandas Series</em>) – Contains the standard deviation of each column (parameter) in df</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pre.set_seed">
+<span class="sig-prename descclassname"><span class="pre">pre.</span></span><span class="sig-name descname"><span class="pre">set_seed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seed</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pre.set_seed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this to set ALL the random seeds to a fixed value and take out any
+randomness from cuda kernels
+From Imperial College Machine Learning module teaching resources</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>seed</strong> (<em>int</em>) – Random seed</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pre.split_by_PCA_mean">
+<span class="sig-prename descclassname"><span class="pre">pre.</span></span><span class="sig-name descname"><span class="pre">split_by_PCA_mean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_cols</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_cols</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_mean</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_std</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PCA_components</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val_split</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">123</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plots</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pre.split_by_PCA_mean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Split a dataset according the distance from the geometric mean in
+reduced dimension sapce. Anything within the
+specified dist from mean goes to the training set, anything outside
+goes to the test set. Then, a portion of the training set gets randomly
+shuffled to make the validation set.</p>
+<p>FINISH [XXX]</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pre.split_by_bounds">
+<span class="sig-prename descclassname"><span class="pre">pre.</span></span><span class="sig-name descname"><span class="pre">split_by_bounds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_cols</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_cols</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_lims_all</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_mean</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_std</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ood_lims_in</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ood_lims_out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PCA_components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val_split</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">123</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plots</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pre.split_by_bounds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Split a dataset according to some fixed bounds. Anything within the
+specified domain goes to the training set, anything outside goes to the
+test set. Then, a portion of the training set gets randomly shuffled
+to make the validation set.</p>
+<p>FINISH [XXX]</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pre.split_data">
+<span class="sig-prename descclassname"><span class="pre">pre.</span></span><span class="sig-name descname"><span class="pre">split_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_cols</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_cols</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">component</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff_percentile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.005,</span> <span class="pre">0.05)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val_split</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1234</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_df</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pre.split_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Splits a dataframe into train, test (i.e. OoD) and validate (i.e. within
+the domain of train data).
+:param df: Contains all the raw data (pandas DataFrame)
+:type df: Pandas Dataframe
+:param component: Which column to sort the data by in the DataFrame
+:type component: int
+:param x_cols: Which columns in the df contain the independent variable(s)
+:type x_cols: list
+:param y_cols: Which columns in the df contain the dependent variable(s)
+:type y_cols: list
+:param cutoff_percentile: How many rows from the top and bottom of the df to cut off</p>
+<blockquote>
+<div><p>(when sorted by ‘component’) to make the ood set.
+Defulat: (0.005, 0.05), i.e. 0.5% from bottom and 5% from top</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>val_split</strong> (<em>float</em><em>, </em><em>default: 0.2</em><em> (</em><em>i.e. 20%</em><em>)</em>) – How much of the dataframe to split off for the validation set.</p></li>
+<li><p><strong>seed</strong> (<em>int</em>) – Random seed to use for val_split</p></li>
+<li><p><strong>return_df</strong> (<em>bool</em>) – If True, return a Pandas DataFrame for each dataset only</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em>) – If True, print the progress and summary of data pre-processing</p></li>
+<li><p><strong>test</strong> – If True, produce a Train, Test and Validation sets
+If False, only produce Train and Validation sets</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pre.unnormalise">
+<span class="sig-prename descclassname"><span class="pre">pre.</span></span><span class="sig-name descname"><span class="pre">unnormalise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mean</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">std</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pre.unnormalise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unnoramlise (standardise) some data x based on a mean and standard
+deviation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>scalar</em><em>, </em><em>array_like</em><em>, </em><em>DataFrame</em><em>, </em><em>TorchTensor</em>) – Data to be unnormalised</p></li>
+<li><p><strong>mean</strong> (<em>scalar</em><em>, </em><em>array_like</em><em>, </em><em>DataFrame</em><em>, </em><em>TorchTensor</em>) – Mean of the data (pre-normalisation)</p></li>
+<li><p><strong>std</strong> (<em>scalar</em><em>, </em><em>array_like</em><em>, </em><em>DataFrame</em><em>, </em><em>TorchTensor</em>) – Standard deviation of the data (pre-normalisation)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Unnormalised version of the input struct</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>unnormalised_x</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">DUQ</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Archie Luxton.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

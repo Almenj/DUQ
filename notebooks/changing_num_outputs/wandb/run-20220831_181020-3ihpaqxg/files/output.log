@@ -1,0 +1,51 @@
+Loss
+	validation       	 (min:    0.086, max:    0.086, cur:    0.086)
+	training         	 (min:    0.184, max:    0.184, cur:    0.184)
+Loss
+	validation       	 (min:    0.005, max:    0.086, cur:    0.006)
+	training         	 (min:    0.003, max:    0.184, cur:    0.004)
+Loss
+	validation       	 (min:    0.004, max:    0.086, cur:    0.006)
+	training         	 (min:    0.003, max:    0.184, cur:    0.004)
+Time elapsed: 282.43s.
+Number of trainable model parameters: 5705, number of training samples: 929
+Used batches of 50.
+Time taken: 282.4433877468109s
+OUTPUT 0:
+Untrustworthy in train:	0	(low: 0, high: 0)
+Untrustworthy in test:	651	(low: 599, high: 52)
+Untrustworthy in val:	4	(low: 4, high: 0)
+----------------------
+Total untrustworthy:	655
+OUTPUT 1:
+Untrustworthy in train:	0	(low: 0, high: 0)
+Untrustworthy in test:	636	(low: 611, high: 25)
+Untrustworthy in val:	2	(low: 2, high: 0)
+----------------------
+Total untrustworthy:	638
+OUTPUT 2:
+Untrustworthy in train:	0	(low: 0, high: 0)
+Untrustworthy in test:	631	(low: 617, high: 14)
+Untrustworthy in val:	3	(low: 2, high: 1)
+----------------------
+Total untrustworthy:	634
+OUTPUT 3:
+Untrustworthy in train:	7	(low: 4, high: 3)
+Untrustworthy in test:	684	(low: 626, high: 58)
+Untrustworthy in val:	9	(low: 8, high: 1)
+----------------------
+Total untrustworthy:	700
+OUTPUT 4:
+Untrustworthy in train:	16	(low: 13, high: 3)
+Untrustworthy in test:	664	(low: 607, high: 57)
+Untrustworthy in val:	18	(low: 12, high: 6)
+----------------------
+Total untrustworthy:	698
+OOD lower:	835
+OOD upper:	195
+Train:		929
+Test:		863
+Val:		104
+Unused:		82
+Total:		1978 (of 1978)
+[34m[1mwandb[39m[22m: [33mWARNING[39m Calling wandb.login() after wandb.init() has no effect.

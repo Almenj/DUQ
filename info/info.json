@@ -1,0 +1,16 @@
+{
+    "username": "aol21",
+    "code": "P-RK06",
+    "title": "Bayesian Machine Learning for Quantifying Uncertainty in Surrogate Modelling",
+    "s1": {
+        "name": "Ramaseshan Kannan",
+        "email": "ramaseshan.kannan@arup.com",
+        "affiliation": "Algorithms and Numerical Analysis Associate (Digital Development) at Arup "
+    },
+    "s2": {
+        "name": "Gerard Gorman",
+        "email": "g.gorman@imperial.ac.uk",
+        "affiliation": "Imperial College London"
+    },
+    "additional-supervisors": ""
+}

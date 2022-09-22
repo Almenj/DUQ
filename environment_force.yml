@@ -1,0 +1,13 @@
+name: duq_env
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - flask
+  - jupyter
+  - pip
+  - pip:
+    - -r requirements.txt
+    - --trusted-host pypi.python.org
+    - --trusted-host pypi.org
+    - --trusted-host files.pythonhosted.org

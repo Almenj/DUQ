@@ -1,0 +1,13 @@
+arviz
+Flask
+livelossplot
+matplotlib
+jupyter
+joypy
+numpy
+pandas
+scikit_learn
+scipy
+seaborn
+torch
+wandb

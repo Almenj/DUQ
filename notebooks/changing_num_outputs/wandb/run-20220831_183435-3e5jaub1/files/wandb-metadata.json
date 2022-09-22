@@ -1,0 +1,21 @@
+{
+    "os": "Windows-10-10.0.19041-SP0",
+    "python": "3.8.8",
+    "heartbeatAt": "2022-08-31T17:34:39.592364",
+    "startedAt": "2022-08-31T17:34:35.703871",
+    "docker": null,
+    "cpu_count": 8,
+    "cuda": null,
+    "args": null,
+    "state": "running",
+    "program": "Documents/irp-aol21/notebooks/changing_num_outputs/MCD_5_outputs.ipynb",
+    "root": "C:/Users/aolux/Documents/irp-aol21",
+    "git": {
+        "remote": "https://github.com/ese-msc-2021/irp-aol21.git",
+        "commit": "ceacffda91c0107c61d7ed285455bc3af2da0061"
+    },
+    "email": "89035078+acse-aol21@users.noreply.github.com",
+    "host": "DESKTOP-6DFMMQ9",
+    "username": "aolux",
+    "executable": "C:\\Users\\aolux\\anaconda3\\python.exe"
+}

@@ -1,0 +1,12 @@
+Documentation for the Code
+**************************
+
+.. automodule:: mc_dropout
+
+.. automodule:: sgld
+
+.. automodule:: pre
+
+.. automodule:: post
+
+
