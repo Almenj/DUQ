@@ -503,7 +503,7 @@ class BPR_plots:
         print("Parameters: ", params_label)
 
         xticks = np.arange(len(self.chain[:, 0]))
-        f, axs = plt.subplots(self.chain.shape[1], 3, figsize=(25, 25))
+        f, axs = plt.subplots(self.chain.shape[1], 3, figsize=(10, 10), dpi=200)
 
         # Step through the different paramters
         for i in range(self.chain.shape[1]):
@@ -681,8 +681,12 @@ class BPR_plots:
         figwidth = 15
         if 'figwidth' in kwargs:
             figwidth = kwargs.pop('figwidth', '')
+            
+        dpi = 50
+        if 'dpi' in kwargs:
+            dpi = kwargs.pop('dpi', '')
 
-        plt.figure(figsize=(figheight, figwidth))
+        plt.figure(figsize=(figheight, figwidth),dpi=dpi)
 
         # Sample from the distributions to draw a bunch of lines
         xs = np.linspace(xmin, xmax, conf_resolution)
@@ -1000,13 +1004,18 @@ class BPR_plots:
         figaspect = 1
         if 'figaspect' in kwargs:
             figaspect = kwargs.pop('figaspect', '')
+            
+        dpi = 50
+        if 'dpi' in kwargs:
+            dpi = kwargs.pop('dpi', '')
 
         # Plot
+        plt.figure(figsize=(figheight,figheight*figaspect),dpi=dpi)
         sns.displot(x=posterior,
                     kind="kde",
                     bw_adjust=bin_width,
-                    height=figheight,
-                    aspect=figaspect).set(title=f"Posterior Prediction for"
+                    #height=figheight,
+                    ).set(title=f"Posterior Prediction for"
                                           f"$f(x={x}) = {mean:.2f}$")
         plt.xlim(xmin, xmax)  # 6 sigma either side of the mean
         # Extract the max value from the plot
